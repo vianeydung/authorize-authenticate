@@ -1,3 +1,4 @@
 {
-	"MONGO_URI": "mongodb://localhost:27017/authentication"
+	"MONGO_URI_LOCAL": "mongodb://localhost:27017/authentication",
+	"MONGO_URI": "mongodb://admin:123456?a@ds133556.mlab.com:33556/authentication"
 }
