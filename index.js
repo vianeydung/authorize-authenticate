@@ -2,7 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const config = require('./config.json')
 
-mongoose.connect(config.MONGO_URI, {useCreateIndex: true, useNewUrlParser: true})
+mongoose.connect(config.MONGO_URI, {useNewUrlParser: true})
         .then(console.log('Connected MongoDb'))
         .catch(console.log)
 
