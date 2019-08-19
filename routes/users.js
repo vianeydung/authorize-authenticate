@@ -5,19 +5,20 @@ const jwt = require('jsonwebtoken')
 
 const {checkToken, authenticate, authorizing} = require('../middleware/auth')
 // load model
-const {User} = require('../models/users');
+const {Users} = require('../models/users');
 const router = express.Router()
 // routes: /api/user/register
 // desc:    Register a new user
 // access:  PUBLIC
 router.post('/register', (req, res) => {
   const {username, password, phone, usertype} = req.body
-  User.find({username})
+  console.log(req.body)
+  Users.findOne({username})
     .then(user => {
       if(user) {
         return res.status(400).json("User name exists")
       }
-      const newUser = new User({
+      const newUser = new Users({
         username, password, phone, usertype
       })
       bcrypt.genSalt(10, (err, salt) => {
@@ -49,7 +50,7 @@ router.get('/current-user',
 
 router.post('/signin', (req, res) => {
   const {username, password} = req.body;
-  User.findOne({username: 'nctdung'})
+  Users.findOne({username: 'nctdung'})
     .then(user => {
       if(!user) {
           return res.status(404).json("user name don't match")
