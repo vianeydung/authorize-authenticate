@@ -1,8 +1,0 @@
-{
-    "version": 2,
-    "name": "authentication",
-    "builds": [
-        { "src": "www/package.json", "use": "@now/next" },
-        { "src": "*.js", "use": "@now/node" }
-    ]
-}
